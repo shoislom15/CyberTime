@@ -53,9 +53,7 @@ const Alaram = () => {
                                     <span className={`fw-5 ${obj.weekDays.includes("Friday") && "text-yellow"}`} >F</span>
                                     <span className={`fw-5 ${obj.weekDays.includes("Saturday") && "text-yellow"}`} >S</span>
                                 </div>
-                                <button className="btn border-gray p-0">
-                                    <div className="rounded-circle labelCircle activeLabel bg-danger"></div>
-                                </button>
+                                <div className="rounded-circle labelCircle activeLabel bg-danger"></div>
                             </div>
                         </li>
                     </>
