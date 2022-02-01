@@ -60,13 +60,13 @@ const GlobalStyle = createGlobalStyle`
     height: 20px;
     width: 20px;
     transform: scale(1.17) !important;
+    background-color: #ffffffa2 !important;
   }
 
   .activeLabel{
-    transform: translateX(80%);
+    transform: translateX(80%) !important;
     background-color: ${colors.yellow} !important;
     // filter: blur(1px);
-
   }
 `;
 

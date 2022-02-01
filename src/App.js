@@ -6,11 +6,126 @@ import Countdown from "./pages/Countdown.js";
 import Stopwatch from "./pages/Stopwatch.js";
 import Navbar from "./containers/Navbar";
 import { useState } from "react";
+import Alarams from "./Data/dataAlarams";
 
 function App() {
 
+  const [alarms, setAlarms] = useState([
+    {
+      time: "03:00",
+      date: "",
+      type: "repeatable",
+      weekDays: [
+        "Monday",
+        "Friday",
+      ],
+      active: true,
+    },
+    {
+      time: "03:00",
+      date: "",
+      type: "repeatable",
+      weekDays: [
+        "Monday",
+        "Friday",
+      ],
+      active: true,
+    },
+    {
+      time: "03:00",
+      date: "",
+      type: "repeatable",
+      weekDays: [
+        "Monday",
+        "Friday",
+      ],
+      active: true,
+    },
+    {
+      time: "03:00",
+      date: "",
+      type: "repeatable",
+      weekDays: [
+        "Monday",
+        "Friday",
+      ],
+      active: false,
+    },
+    {
+      time: "03:00",
+      date: "",
+      type: "repeatable",
+      weekDays: [
+        "Monday",
+        "Friday",
+      ],
+      active: true,
+    },
+    {
+      time: "03:00",
+      date: "",
+      type: "repeatable",
+      weekDays: [
+        "Monday",
+        "Friday",
+      ],
+      active: true,
+    },
+    {
+      time: "03:00",
+      date: "",
+      type: "repeatable",
+      weekDays: [
+        "Monday",
+        "Friday",
+      ],
+      active: true,
+    },
+    {
+      time: "03:00",
+      date: "",
+      type: "repeatable",
+      weekDays: [
+        "Monday",
+        "Friday",
+      ],
+      active: true,
+    },
+    {
+      time: "03:00",
+      date: "",
+      type: "repeatable",
+      weekDays: [
+        "Monday",
+        "Friday",
+      ],
+      active: true,
+    },
+    {
+      time: "03:00",
+      date: "",
+      type: "repeatable",
+      weekDays: [
+        "Monday",
+        "Friday",
+      ],
+      active: true,
+    },
+    {
+      time: "03:00",
+      date: "",
+      type: "repeatable",
+      weekDays: [
+        "Monday",
+        "Friday",
+      ],
+      active: true,
+    },
+  ],
+  )
+
   return (
-    <>
+    <Alarams.Provider value={{ alarms, setAlarms }}>
       <GlobalStyle />
       <div className="main w-100">
         <Routes  >
@@ -21,7 +136,7 @@ function App() {
         <Navbar></Navbar>
       </div>
 
-    </>
+    </Alarams.Provider>
 
   );
 }

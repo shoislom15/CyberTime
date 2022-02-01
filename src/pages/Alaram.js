@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Alarams from "../Data/dataAlarams";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
@@ -7,24 +7,30 @@ const Alaram = () => {
     const timeToFirst = "6 hours 45 minutes";
     const dateOfFirrst = "Monday, 25 Aug 03:30";
 
-    const { dataAlarams, setDataAlarams } = React.useContext(Alarams);
 
-    setDataAlarams([
-        {
-            time: "03:00",
-            date: "",
-            type: "repeatable",
-            weekDays: ["Monday", "Friday",],
-        },
-        {
-            time: "03:00",
-            date: "",
-            type: "once",
-        },
-    ]);
+    const { alarms, setAlarms } = React.useContext(Alarams);
 
-    console.log(dataAlarams);
+    // setAlarms([
+    //     {
+    //         time: "03:00",
+    //         date: "",
+    //         type: "repeatable",
+    //         weekDays: ["Monday", "Friday",],
+    //     },
+    //     {
+    //         time: "03:00",
+    //         date: "",
+    //         type: "once",
+    //     },
+    // ]);
 
+    console.log(alarms);
+
+    const setActive = (i) => {
+        const newActive = [...alarms];
+        newActive[i].active = !newActive[i].active;
+        setAlarms(newActive);
+    }
 
     return (
         <div className="container text-center pt-5">
@@ -33,7 +39,7 @@ const Alaram = () => {
             <h5 className="text-yellow">{dateOfFirrst}</h5>
             <ul className="mx-auto">
                 <li className="rounded d-flex align-items-center justify-content-end fs-4 text-yellow px-2 py-3"><FontAwesomeIcon icon={faPlusCircle} /></li>
-                {dataAlarams.map((obj, i) => {
+                {alarms.map((obj, i) => {
                     console.log(obj.weekDays.indexOf("Monday"));
                     return <>
                         <li key={obj} className="rounded d-flex align-items-center justify-content-between text-white bg-gray px-md-5 px-2 py-3 mb-3">
@@ -53,7 +59,9 @@ const Alaram = () => {
                                     <span className={`fw-5 ${obj.weekDays.includes("Friday") && "text-yellow"}`} >F</span>
                                     <span className={`fw-5 ${obj.weekDays.includes("Saturday") && "text-yellow"}`} >S</span>
                                 </div>
-                                <div className="rounded-circle labelCircle activeLabel bg-danger"></div>
+                                <button className="btn border-gray p-0" onClick={() => { setActive(i) }}>
+                                    <div className={`rounded-circle labelCircle ${obj.active && "activeLabel"}`}></div>
+                                </button>
                             </div>
                         </li>
                     </>
