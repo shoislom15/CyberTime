@@ -5,8 +5,10 @@ import Alaram from "./pages/Alaram.js";
 import Countdown from "./pages/Countdown.js";
 import Stopwatch from "./pages/Stopwatch.js";
 import Navbar from "./containers/Navbar";
+import { useState } from "react";
 
 function App() {
+
   return (
     <>
       <GlobalStyle />
