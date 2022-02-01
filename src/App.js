@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import GlobalStyle from "./styles/GlobalStyle";
+import Alaram from "./pages/Alaram.js";
+import Countdown from "./pages/Countdown.js";
+import Stopwatch from "./pages/Stopwatch.js";
+import Navbar from "./containers/Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <div className="main w-100">
+        <Routes  >
+          <Route path="/" element={<Alaram />} />
+          <Route path="/Countdown/*" element={<Countdown />} />
+          <Route path="/Stopwatch/*" element={<Stopwatch />} />
+        </Routes>
+        <Navbar></Navbar>
+      </div>
+
+    </>
+
   );
 }
 
